@@ -5,15 +5,22 @@ This repository contains the scripts and data involved in the experiments descri
 ## Project Structure
 
 ### dataset
-The original dataset from `HumanEval-X` are split into:
+The original dataset from `HumanEval-X` is split into:
 - humaneval_cpp.jsonl
 - humaneval_java.jsonl
 - humaneval_py.jsonl
 
-All the code related to Abstrat Syntax Tree analysis, including transform scripts to construct our dataset `PathEval` are placed into:
+All the code related to Abstract Syntax Tree analysis, including transform scripts to construct our dataset `PathEval` are placed into:
 - cpp_ast_analysis.py
 - py_ast_analysis.py
 - java_ast_analysis.py
+
+The reconstructed datasets are placed into the:
+- patheval_cpp.jsonl
+- patheval_java.jsonl
+- patheval_py.py
+
+They can be obtained by running the corresponding `_ast_analysis.py` file.
 
 We use the following scripts to query LLMs:
 - gpt_run.py
@@ -26,14 +33,14 @@ The following scripts are used to run constraint-based tools:
 - crosshair_run.py
 - evosuite_run.py
 
-And use the following scripts to check the answer of LLMs:
+Use the following scripts to check the answer of LLMs:
 - cpp_check.py
 - java_check.py
 - py_check.py
 
 ### RQ1 and RQ2
 
-The result of our evaluation are placed under the floder `results`:
+The results of our evaluation are placed under the folder `results`:
 - codellama_result_cpp.jsonl   
 - codellama_result_py.jsonl 
 - codellama_result_java.jsonl  
@@ -50,7 +57,7 @@ The result of our evaluation are placed under the floder `results`:
 - crosshair_result.jsonl
 - evosuite_result.jsonl
 
-The code related to results analysis are placed into:
+The code related to results analysis is placed into the:
 - data_analysis.py
 
 For example:
@@ -69,15 +76,15 @@ For example:
 
 ### RQ3
 
-For our soluation LLMSym, we use the following scripts to conduct feedback shot:
+For our solution LLMSym, we use the following scripts to conduct feedback shot:
 - cpp_executor.py (& pprint.hpp)
 - py_executor.py
 
-And using the following scripts to enhance harness:
+And using the following scripts to enhance the harness:
 - typeinfer.py
 - enhance.py
 
-The result of LLMSym and the baselines is saved in:
+The result of LLMSym and the baselines are saved in:
 
 - results/crosshair_result.jsonl
 - results/gpt_result_py.jsonl
